@@ -12,10 +12,24 @@ class AdvertController extends Controller
 {
     public function indexAction()
     {
-        /* $name = "winzou";
-        $content = $this->get('templating')->render('OCPlatformBundle:Advert:index.html.twig');
-        $content = $this->render('Advert/index.html.twig');
-        return new Response($content); */
+        
         return $this->render('@OCPlatform/Advert/index.html.twig', array('nom'=> 'winzou'));
+    }
+
+    public function byebyeAction()
+    {
+        return $this->render('@OCPlatform/Advert/byebye.html.twig');
+    }
+
+    public function viewAction($id)
+    {
+        return new Response("affichange de l'annonce d'id : ".$id);
+    }
+
+    public function viewSlugAction($slug, $year, $_format)
+    {
+        return new Response(
+            "On pourrait afficher l'annonce correspondant au slug '".$slug."', crée en ".$year." et au format ".$_format."."
+        );
     }
 }
